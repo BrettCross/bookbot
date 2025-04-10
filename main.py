@@ -39,6 +39,4 @@ def main():
         pretty_print(filepath, num_words, char_dict_list)
 
 
-
-
 main()
