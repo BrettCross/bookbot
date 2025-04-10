@@ -1,3 +1,4 @@
+import sys
 from stats import get_num_words
 from stats import count_characters
 from stats import sort_chars
@@ -21,17 +22,21 @@ def pretty_print(filepath, total_words, char_dict_list):
 
 
 def main():
-    filepath = "books/frankenstein.txt"
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    else:
+        filepath = sys.argv[1]
 
-    text = get_book_text(filepath)
+        text = get_book_text(filepath)
 
-    num_words = get_num_words(text)
+        num_words = get_num_words(text)
 
-    char_dict = count_characters(text)
+        char_dict = count_characters(text)
 
-    char_dict_list = sort_chars(char_dict)
+        char_dict_list = sort_chars(char_dict)
 
-    pretty_print(filepath, num_words, char_dict_list)
+        pretty_print(filepath, num_words, char_dict_list)
 
 
 
